@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
-$:.push File.expand_path("../lib", __FILE__)
-require "lib/version"
+$:.push File.expand_path("..", __FILE__)
+require 'lib/version'
 
 Gem::Specification.new do |s|
   s.name        = "mm-carrierwave"
@@ -19,6 +19,6 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'mongo_mapper', ['~> 0.9']
   s.add_dependency 'carrierwave', ['~> 0.5']
-  s.add_development_dependency('rspec', ["~> 2.1"])
+  s.add_development_dependency('rspec', ["~> 2.5"])
   s.add_development_dependency "timecop"
 end

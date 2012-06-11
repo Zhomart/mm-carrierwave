@@ -42,5 +42,5 @@ PLATFORMS
 
 DEPENDENCIES
   mm-carrierwave!
-  rspec (~> 2.1)
+  rspec (~> 2.5)
   timecop

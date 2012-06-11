@@ -1,7 +1,8 @@
 # encoding: utf-8
+$:.push File.expand_path("../..", __FILE__)
 
 require "rubygems"
-require "bundler/setup"
+# require "bundler/setup"
 
 require 'tempfile'
 require 'time'
@@ -9,6 +10,7 @@ require 'logger'
 
 require 'carrierwave'
 require 'timecop'
+require 'mongo_mapper'
 
 alias :running :lambda
 
@@ -21,6 +23,11 @@ def public_path( *paths )
 end
 
 CarrierWave.root = public_path
+
+logger = Logger.new('log/test.log')
+
+MongoMapper.connection = Mongo::Connection.new('127.0.0.1', 27017, :logger => logger)
+MongoMapper.database = "carrierwave_test"
 
 module CarrierWave
   module Test
