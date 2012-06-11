@@ -1,6 +1,6 @@
 h1. MongoMapper CarrierWave "!http://stillmaintained.com/80beans/mm-carrierwave.png!":http://stillmaintained.com/80beans/mm-carrierwave
 
-Orm to use MongoMapper and Carrierwave.
+Orm to use MongoMapper(GridFS) and Carrierwave.
 
 https://github.com/jnunemaker/mongomapper
 https://github.com/jnicklas/carrierwave
@@ -9,6 +9,7 @@ https://github.com/jnicklas/carrierwave
 h2. Status
 
 Everything works except translations of validations right now.
+Testing GridFS
 
 
 h2. License
