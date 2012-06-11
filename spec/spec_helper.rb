@@ -24,7 +24,9 @@ end
 
 CarrierWave.root = public_path
 
-logger = Logger.new('log/test.log')
+log_dir = File.expand_path('../../log', __FILE__)
+FileUtils.mkdir_p(log_dir) unless File.exist?(log_dir)
+logger = Logger.new(log_dir + '/test.log')
 
 MongoMapper.connection = Mongo::Connection.new('127.0.0.1', 27017, :logger => logger)
 MongoMapper.database = "carrierwave_test"

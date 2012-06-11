@@ -134,62 +134,62 @@ describe CarrierWave::MongoMapper do
 
     end
 
-    # context 'when validating integrity' do
-    #   before do
-    #     mongo_user_klass = reset_mongo_class(WhiteListUploader)
-    #     @doc = mongo_user_klass.new
-    #     @doc.image = stub_file('bork.txt')
-    #     p stub_file('test.jpg')
-    #   end
+    context 'when validating integrity' do
+      before do
+        mongo_user_klass = reset_mongo_class(WhiteListUploader)
+        @doc = mongo_user_klass.new
+        @doc.image = stub_file('bork.txt')
+        p stub_file('test.jpg')
+      end
 
-    #   it "should make the document invalid when an integrity error occurs" do
-    #     @doc.should_not be_valid
-    #   end
+      it "should make the document invalid when an integrity error occurs" do
+        @doc.should_not be_valid
+      end
 
-    #   pending "should use I18n for integrity error messages" do
-    #     @doc.valid?
-    #     @doc.errors[:image].should == ['is not an allowed file type']
+      pending "should use I18n for integrity error messages" do
+        @doc.valid?
+        @doc.errors[:image].should == ['is not an allowed file type']
 
-    #     change_locale_and_store_translations(:pt, :carrierwave => {
-    #       :errors => {
-    #         :messages => {
-    #           :carrierwave_integrity_error => 'tipo de imagem não permitido.'
-    #         }
-    #       }
-    #     }) do
-    #       @doc.should_not be_valid
-    #       @doc.errors[:image].should == ['tipo de imagem não permitido.']
-    #     end
-    #   end
-    # end
+        change_locale_and_store_translations(:pt, :carrierwave => {
+          :errors => {
+            :messages => {
+              :carrierwave_integrity_error => 'tipo de imagem não permitido.'
+            }
+          }
+        }) do
+          @doc.should_not be_valid
+          @doc.errors[:image].should == ['tipo de imagem não permitido.']
+        end
+      end
+    end
 
-    # context 'when validating processing' do
-    #   before do
-    #     mongo_user_klass = reset_mongo_class(ProcessingErrorUploader)
-    #     @doc = mongo_user_klass.new
-    #     @doc.image = stub_file('test.jpg')
-    #   end
+    context 'when validating processing' do
+      before do
+        mongo_user_klass = reset_mongo_class(ProcessingErrorUploader)
+        @doc = mongo_user_klass.new
+        @doc.image = stub_file('test.jpg')
+      end
 
-    #   it "should make the document invalid when a processing error occurs" do
-    #     @doc.should_not be_valid
-    #   end
+      it "should make the document invalid when a processing error occurs" do
+        @doc.should_not be_valid
+      end
 
-    #   pending "should use I18n for processing error messages" do
-    #     @doc.valid?
-    #     @doc.errors[:image].should == ['failed to be processed']
+      pending "should use I18n for processing error messages" do
+        @doc.valid?
+        @doc.errors[:image].should == ['failed to be processed']
 
-    #     change_locale_and_store_translations(:pt, :carrierwave => {
-    #       :errors => {
-    #         :messages => {
-    #           :carrierwave_processing_error => 'falha ao processar imagem.'
-    #         }
-    #       }
-    #     }) do
-    #       @doc.should_not be_valid
-    #       @doc.errors[:image].should == ['falha ao processar imagem.']
-    #     end
-    #   end
-    # end
+        change_locale_and_store_translations(:pt, :carrierwave => {
+          :errors => {
+            :messages => {
+              :carrierwave_processing_error => 'falha ao processar imagem.'
+            }
+          }
+        }) do
+          @doc.should_not be_valid
+          @doc.errors[:image].should == ['falha ao processar imagem.']
+        end
+      end
+    end
 
   end
 
