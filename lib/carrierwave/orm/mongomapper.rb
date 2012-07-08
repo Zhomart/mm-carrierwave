@@ -1,6 +1,7 @@
 # encoding: utf-8
 
 require 'mongo_mapper'
+require 'carrierwave'
 require 'carrierwave/validations/active_model'
 
 module CarrierWave
